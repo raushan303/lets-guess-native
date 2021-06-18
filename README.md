@@ -5,7 +5,7 @@
 3. We will show you 9 tiles
 4. One of the tiles will be hiding your number
 5. You will have three chance to select any tile to see the number under that tile
-6. If you guessed the tile which is containg you number then you will win the game else you will loose 
+6. If you guessed the tile which is containing you number then you will win the game else you will loose 
 7. **Added proper validations as well as error and success messages**
 
 ### Technology Used
