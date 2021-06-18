@@ -28,8 +28,6 @@ const statusComponent = ({
   const totalAttempt = 3;
   const attempt = visibleTiles.length;
 
-  
-
   switch (getType()) {
     case "pending":
       return (
@@ -57,7 +55,9 @@ const statusComponent = ({
             <Text style={styles.statusText}>Hurray! You Won</Text>
           </View>
           {playAgainCta}
-          <Text style={styles.infoText}>You can open other Tiles too</Text>
+          <Text style={styles.infoText}>
+            You found {selectedNumber} Successfully
+          </Text>
         </View>
       );
     case "failure":
@@ -74,7 +74,10 @@ const statusComponent = ({
           </View>
 
           {playAgainCta}
-          <Text style={styles.infoText}>You can open other Tiles too</Text>
+          <Text style={styles.infoText}>
+            You have exhausted your all 3 attempts, still you can open other
+            tiles and see where your number {selectedNumber} was
+          </Text>
         </View>
       );
   }
@@ -103,11 +106,12 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   infoText: {
-    marginTop: 20,
+    marginTop: 5,
     textAlign: "center",
     fontSize: 16,
     fontWeight: "500",
-    marginBottom: -25
+    marginBottom: -20,
+    lineHeight: 24,
   },
   btn: {
     margin: 20,

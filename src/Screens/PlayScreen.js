@@ -55,6 +55,7 @@ const PlayScreen = ({ route, navigation }) => {
                 visibleTiles={visibleTiles}
                 setVisibleTiles={setVisibleTiles}
                 item={item}
+                isWon={isWon}
               />
             )}
             keyExtractor={(item) => item.id}
@@ -71,18 +72,5 @@ export default PlayScreen;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-  },
-  tileBox: {
-    height: 100,
-    width: 100,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 10,
-    borderRadius: 4,
-  },
-  tileText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "500",
   },
 });

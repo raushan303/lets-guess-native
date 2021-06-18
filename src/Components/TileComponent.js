@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-const TileComponent = ({ visibleTiles, setVisibleTiles, item }) => {
+const TileComponent = ({ visibleTiles, setVisibleTiles, item, isWon }) => {
   const onShowClick = () => {
-    setVisibleTiles((prevState) => [...prevState, item.id]);
+    if (!isWon) setVisibleTiles((prevState) => [...prevState, item.id]);
   };
 
   const getTiles = (text, show) => (
@@ -35,5 +35,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 10,
     borderRadius: 4,
+  },
+  tileText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "500",
   },
 });
