@@ -12,26 +12,37 @@ import {
 const InputScreen = ({ navigation }) => {
   const [value, setValue] = useState("");
   const [message, setMessage] = useState("");
+
+  const isNumeric = (str) => {
+    return (
+      !isNaN(str) &&
+      !isNaN(parseFloat(str)) &&
+      parseInt(str, 10) >= 0 &&
+      parseInt(str, 10) < 100
+    );
+  };
+
   const handleSubmit = () => {
-    if (!value) {
+    if (!isNumeric(value)) {
       setMessage("Enter a number between 0 - 99");
       return;
     }
     setMessage("");
     navigation.navigate("Play", {
-      selectedNumber: value,
+      selectedNumber: parseInt(value, 10),
     });
     setValue("");
   };
 
   const onChangeText = (value) => {
     setValue(value);
-    if (value) setMessage("");
+    if (isNumeric(value)) setMessage("");
+    else setMessage("Enter a number between 0 - 99");
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.rulesBox}>
           <Text style={styles.ruleText}>
             Enter a number and proceed to play
